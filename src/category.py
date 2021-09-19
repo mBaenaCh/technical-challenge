@@ -2,7 +2,7 @@ class Category:
     def __init__(self, id, dificulty, name):
         self.id = id
         self.dificulty = dificulty
-        self.name = name
+        self.name = name    
 
     @property
     def dificulty(self):
