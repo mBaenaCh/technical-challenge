@@ -1,11 +1,14 @@
 from player import Player
 from category import Category
 from answer import Answer
+from question import Question
+from string import ascii_lowercase, digits
+from random import choice
 import random
 
 player_1 = Player(1, "Mateo", 5, True)
 
-# Creating answers given the text of them 
+# Creating answers given a list of texts
 def creating_answers(answers_text, correct):
     answers_per_question = 4
     if len(answers_text) == answers_per_question and 0 < correct < len(answers_text):
@@ -25,7 +28,7 @@ def creating_answers(answers_text, correct):
         msg = "There must be "+ answers_per_question +"answers per question"
         return msg
     
-# Creation of categories given a number and names
+# Creation of categories given a list of names 
 def setting_categories(categories_names):
     number_of_categories = 5
     if (len(categories_names) == number_of_categories):
@@ -35,7 +38,7 @@ def setting_categories(categories_names):
 
         for i in range(len(random_ids)):
             category = Category(random_ids[i], dificulty_level, categories_names[i])
-            print(i, category)
+            print(category)
             categories_list.append(category)
             dificulty_level+=1
     
@@ -44,4 +47,12 @@ def setting_categories(categories_names):
         msg = "You can only have "+ str(number_of_categories) +" categories"
         return msg
 
-
+# Creation of questions given a list of titles
+def creating_question_per_category(id, question_title, category, answers):
+    answers_per_questions = 4
+    if(len(answers) == 4):
+        question = Question(id, question_title, category, answers)
+        return question
+    else:
+        msg = "Must have 4 answers per questions"
+        return msg

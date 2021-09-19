@@ -21,4 +21,4 @@ class Answer:
         self._isCorrect = isCorrect
 
     def __str__(self):
-        return self.text + " " +str(self.isCorrect)
+        return str(self.id) + " " + self.text + " " +str(self.isCorrect)
