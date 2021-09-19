@@ -4,5 +4,21 @@ class Answer:
         self.text = text
         self.isCorrect = isCorrect
     
+    @property
+    def text(self):
+        return self._text
+    
+    @text.setter
+    def text(self, text):
+        self._text = text
+
+    @property
+    def isCorrect(self):
+        return self._isCorrect
+    
+    @isCorrect.setter
+    def isCorrect(self, isCorrect):
+        self._isCorrect = isCorrect
+
     def __str__(self):
-        return self.text + " " +self.isCorrect
+        return self.text + " " +str(self.isCorrect)
